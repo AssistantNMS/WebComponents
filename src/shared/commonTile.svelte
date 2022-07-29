@@ -45,8 +45,8 @@
     display: inline-flex;
     padding-right: 1em;
     width: var(--assistantnms-tile-width, unset);
-    border-radius: 0.5em var(--assistantnms-border-radius, 0.25em)
-      var(--assistantnms-border-radius, 0.25em) 0.5em;
+    border-radius: 0.5em var(--assistantnms-border-radius, 0.5em)
+      var(--assistantnms-border-radius, 0.5em) 0.5em;
     color: var(--assistantnms-tile-fg-colour, #c5c5c5);
     background-color: var(--assistantnms-tile-bg-colour, #303030);
     text-decoration: none;

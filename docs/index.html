@@ -11,14 +11,14 @@
 	<link rel="stylesheet" type="text/css" href="assets/css/bulma.min.css">
 	<link rel="stylesheet" type="text/css" href="assets/css/bulma.dark.min.css">
 
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/atom-one-dark-reasonable.min.css">
+	<link rel="stylesheet" href="assets/css/highlight/default.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/highlight/atom-one-dark-reasonable.min.css">
 
 	<script defer src='./build/bundle.js'></script>
 	<script>
-		// window.config = {
-		// 	apiUrl: 'http://localhost:55555'
-		// };
+		window.config = {
+			apiUrl: 'http://localhost:55555'
+		};
 	</script>
 
 	<style>
@@ -90,16 +90,24 @@
 
 			<div class="pl-6 mt-3">
 				<p>Add the following script tag to the bottom your html file.</p>
-				<pre><code class="language-html">&lt;script src="https://assistantapps.github.io/WebComponents/build/bundle.js"&gt;&lt;/script&gt;</code></pre>
+				<pre><code class="language-html">&lt;script src="https://webcomp.nmsassistant.com/build/bundle.js"&gt;&lt;/script&gt;</code></pre>
 			</div>
 
 			<br />
 
 			<input id="step2" type="checkbox" class="styled-checkbox" />
-			<label for="step2" class="checkbox">Customize the look and feel</label>
+			<label for="step2" class="checkbox">Customize the look and feel with some <a
+					href="https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties">CSS
+					variables</a></label>
 
 			<div class="pl-6 mt-3">
 				<pre><code class="language-css">:root {
+   --assistantnms-font-family: "Roboto", Helvetica, Arial, sans-serif;
+   --assistantnms-font-weight: "bold";
+   --assistantnms-border-radius: 0.25em;
+   --assistantnms-tile-fg-colour: #c5c5c5;
+   --assistantnms-tile-bg-colour: #303030;
+   --assistantnms-name-font-size: 1.2em;
    --assistantnms-img-size: 50px;
 }</code></pre>
 			</div>
@@ -127,7 +135,7 @@
 	</footer>
 </body>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+<script src="assets/js/highlight.min.js"></script>
 <script>hljs.highlightAll();</script>
 
 </html>

@@ -22,6 +22,7 @@
       value: anyObject,
       errorMessage: "not initialised",
     };
+
     if (appid != null && appid.length > 3) {
       itemInfoResult = await anmsApi.getItemInfoAppId(appid, langcode);
     } else if (gameid != null && gameid.length > 3) {
@@ -57,14 +58,25 @@
     </slot>
   {/if}
   {#if networkState == NetworkState.Success}
-    <assistant-nms-tooltip tooltiptext={itemInfo.description}>
+    <!-- <assistant-nms-tooltip
+      tooltiptext={itemInfo.description.replaceAll(
+        new RegExp(/(<[A-Z]*>)/g),
+        ""
+      )}
+    >
       <assistant-nms-common-tile
         imageurl={itemInfo.iconUrl}
         bgcolour={itemInfo.colour}
         name={itemInfo.name}
         url={itemInfo.link}
       />
-    </assistant-nms-tooltip>
+    </assistant-nms-tooltip> -->
+    <assistant-nms-common-tile
+      imageurl={itemInfo.iconUrl}
+      bgcolour={itemInfo.colour}
+      name={itemInfo.name}
+      url={itemInfo.link}
+    />
   {/if}
 </div>
 

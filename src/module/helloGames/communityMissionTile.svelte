@@ -53,7 +53,10 @@
       showsubtitle={true}
     >
       <div slot="subtitle" class="progressbar">
-        <div class="progress" style={`width: ${50}%;`} />
+        <div
+          class="progress"
+          style={`width: ${communityMission.percentage}%;`}
+        />
         <span>{`${communityMission.percentage}%`}</span>
       </div>
     </assistant-nms-common-tile>

@@ -19,7 +19,14 @@ pre {
     margin: 0 !important;
 }
 
-.hljs-tag .hljs-attr,
+.hljs-tag {
+    color: #abb2bf !important;
+}
+
+.hljs-tag .hljs-attr {
+    color: #529dff !important;
+}
+
 .hljs-tag .hljs-name {
     color: #688cbb !important;
 }
