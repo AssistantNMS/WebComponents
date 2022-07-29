@@ -1,0 +1,36 @@
+{
+  "name": "assistantnms-webcomponents",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "build": "npm-run-all --sequential version bundle",
+    "version": "node ./versionScript.js",
+    "bundle": "rollup -c",
+    "dev": "rollup -c -w",
+    "start": "sirv docs --no-clear",
+    "check": "svelte-check --tsconfig ./tsconfig.json"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^17.0.0",
+    "@rollup/plugin-node-resolve": "^11.0.0",
+    "@tsconfig/svelte": "^2.0.0",
+    "rollup": "^2.3.4",
+    "rollup-plugin-css-only": "^3.1.0",
+    "rollup-plugin-livereload": "^2.0.0",
+    "rollup-plugin-svelte": "^7.0.0",
+    "rollup-plugin-terser": "^7.0.0",
+    "svelte": "^3.0.0",
+    "svelte-check": "^2.0.0",
+    "svelte-preprocess": "^4.0.0",
+    "tslib": "^2.0.0",
+    "typescript": "^4.0.0"
+  },
+  "dependencies": {
+    "@vanillawc/wc-markdown": "^1.6.11",
+    "dayjs": "^1.10.7",
+    "marked": "^4.0.10",
+    "npm-run-all": "^4.1.5",
+    "rollup-plugin-ts": "^2.0.5",
+    "sirv-cli": "^1.0.0"
+  }
+}

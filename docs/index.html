@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset='utf-8'>
+	<meta name='viewport' content='width=device-width,initial-scale=1'>
+
+	<title>AssistantApps WebComponents</title>
+	<link rel='icon' type='image/png' href='/favicon.png'>
+	<link rel="stylesheet" href="./global.css" />
+	<link rel="stylesheet" type="text/css" href="assets/css/bulma.min.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/bulma.dark.min.css">
+
+	<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+	<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+	<link rel="stylesheet" type="text/css" href="assets/css/atom-one-dark-reasonable.min.css">
+
+	<script defer src='./build/bundle.js'></script>
+	<script>
+		window.config = {
+			apiUrl: 'http://localhost:55555'
+		};
+	</script>
+
+	<style>
+		:root {
+			--assistantnms-img-size: 50px;
+			--assistantnms-border-radius: 10px;
+			/* --assistantnms-tile-width: 100%; */
+		}
+	</style>
+</head>
+
+<body class="dark">
+	<section class="hero is-default is-bold mt-6">
+		<div class="hero-body">
+			<div class="container">
+				<div class="columns is-vcentered">
+					<div class="column is-5 is-offset-1 landing-caption">
+						<h1 class="title is-1 is-bold is-spaced">AssistantNMS WebComponents</h1>
+						<h2 class="subtitle is-5 is-muted">Easy to use components for your <b>No Man's Sky</b>
+							websites/tools/projects and more!
+						</h2>
+						<div class="button-wrap">
+							<a href="#getStarted" class="button cta is-rounded primary-btn raised">
+								Get Started
+							</a>
+							<a class="button cta is-rounded" href="https://github.com/AssistantNMS">
+								Github Organisation
+							</a>
+						</div>
+					</div>
+					<div class="column is-5">
+						<figure class="image is-4by3">
+							<img src="/assets/img/undraw_remote_design_team_re_urdx.svg" alt="Description">
+						</figure>
+					</div>
+				</div>
+				<hr />
+			</div>
+		</div>
+	</section>
+
+	<section class="is-default  mb-6">
+		<div class="container">
+			<h2 class="title is-3 is-bold is-spaced">
+				Examples
+			</h2>
+
+			<assistant-nms-item-info-tile appid="prod49"></assistant-nms-item-info-tile>
+
+			<assistant-nms-item-info-tile gameid="ANTIMATTER"></assistant-nms-item-info-tile>
+
+			<assistant-nms-item-info-tile appid="tech176"></assistant-nms-item-info-tile>
+
+			<assistant-nms-community-mission-tile></assistant-nms-community-mission-tile>
+
+			<br />
+			<hr class="mt-6" />
+		</div>
+	</section>
+
+	<section id="getStarted" class="is-default mt-6 mb-6">
+		<div class="container">
+			<h2 class="title is-3 is-bold is-spaced">
+				Getting Started
+			</h2>
+
+			<input id="step1" type="checkbox" class="styled-checkbox" />
+			<label for="step1" class="checkbox">Add the <code>bundle.js</code> to your web project.</label>
+
+			<div class="pl-6 mt-3">
+				<p>Add the following script tag to the bottom your html file.</p>
+				<pre><code class="language-html">&lt;script src="https://assistantapps.github.io/WebComponents/build/bundle.js"&gt;&lt;/script&gt;</code></pre>
+			</div>
+
+			<br />
+
+			<input id="step2" type="checkbox" class="styled-checkbox" />
+			<label for="step2" class="checkbox">Customize the look and feel</label>
+
+			<div class="pl-6 mt-3">
+				<pre><code class="language-css">:root {
+   --assistantnms-img-size: 50px;
+}</code></pre>
+			</div>
+
+			<br />
+
+			<input id="step3" type="checkbox" class="styled-checkbox" />
+			<label for="step3" class="checkbox">Use one of the prebuilt components</label>
+
+			<div class="mt-6">
+				<br />
+			</div>
+		</div>
+	</section>
+
+	<footer class="footer">
+		<div class="content has-text-centered">
+			<p>
+				<strong>WebComponents</strong> by <a href="https://nmsassistant.com">AssistantNMS</a>. The
+				source code is licensed
+				<a href="http://opensource.org/licenses/mit-license.php">MIT</a>. The website content
+				is licensed <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY NC SA 4.0</a>.
+			</p>
+		</div>
+	</footer>
+</body>
+
+<script>hljs.highlightAll();</script>
+
+</html>
