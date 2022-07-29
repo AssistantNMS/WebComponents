@@ -5,6 +5,7 @@
   export let name: string = "";
   export let bgcolour: string = "2c7c9f";
   export let url: string = "https://nmsassistant.com";
+  export let showsubtitle: boolean = false;
 </script>
 
 <a
@@ -13,25 +14,16 @@
   rel="noopener noreferrer"
   class="gen-item-container"
 >
-  <div class="image-container">
-    <img
-      src={imageurl}
-      alt="loading"
-      draggable={false}
-      style={`background-color: #${bgcolour};`}
-    />
+  <div class="image-container" style={`background-color: #${bgcolour};`}>
+    <img src={imageurl} alt="loading" draggable={false} />
   </div>
   <div class="gen-item-content-container">
-    {#if $$slots.subtitle}
-      <div class="text-container full">
-        <p>{name}</p>
-        <div class="quantity-container">
-          <slot name="subtitle" />
-        </div>
-      </div>
-    {:else}
-      <div class="text-container full">
-        <p>{name}</p>
+    <div class="text-container" class:full={showsubtitle == false}>
+      <p>{name}</p>
+    </div>
+    {#if showsubtitle}
+      <div class="quantity-container">
+        <slot name="subtitle" />
       </div>
     {/if}
   </div>
@@ -79,7 +71,6 @@
   .gen-item-content-container {
     flex-grow: 1;
     max-height: var(--assistantnms-img-size, 100px);
-    min-width: 100%;
     position: relative;
     overflow: hidden;
   }
@@ -93,7 +84,7 @@
     text-align: left;
     padding-top: 0.6em;
     padding-left: 1rem;
-    padding-right: 0.5rem;
+    padding-right: 0.25rem;
   }
 
   .gen-item-content-container .text-container.full {
@@ -105,9 +96,10 @@
   }
 
   .gen-item-content-container .quantity-container {
-    overflow: hidden;
     padding-left: 1.05rem;
-    padding-right: 1rem;
+    padding-right: 0.21rem;
+    max-width: 100%;
+    overflow: hidden;
     text-align: left;
     text-overflow: ellipsis;
     white-space: nowrap;

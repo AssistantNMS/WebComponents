@@ -4,9 +4,9 @@
   import { onMount } from "svelte";
   import { NetworkState } from "../../contracts/NetworkState";
   import { AssistantNmsApiService } from "../../services/api/AssistantNmsApiService";
-  import { ItemInfoViewModel } from "../../contracts/generated/itemInfoViewModel";
+  import type { ItemInfoViewModel } from "../../contracts/generated/itemInfoViewModel";
   import { anyObject } from "../../helper/typescriptHacks";
-  import { ResultWithValue } from "../../contracts/results/ResultWithValue";
+  import type { ResultWithValue } from "../../contracts/results/ResultWithValue";
 
   let networkState: NetworkState = NetworkState.Loading;
   let itemInfo: ItemInfoViewModel = anyObject;
@@ -51,7 +51,7 @@
   {#if networkState == NetworkState.Error}
     <slot name="error">
       <assistant-nms-common-tile
-        imageurl="/assets/images/error.png"
+        imageurl="https://app.nmsassistant.com/assets/images/error.png"
         name="Something went wrong"
       />
     </slot>
