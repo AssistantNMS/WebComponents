@@ -16,9 +16,11 @@
 
 	<script defer src='./build/bundle.js'></script>
 	<script>
-		window.config = {
-			apiUrl: 'http://localhost:55555'
-		};
+		if (location.hostname.includes('localhost') === true) {
+			window.config = {
+				apiUrl: 'http://localhost:55555'
+			};
+		}
 	</script>
 
 	<style>
@@ -66,13 +68,31 @@
 				Examples
 			</h2>
 
-			<assistant-nms-item-info-tile appid="prod49"></assistant-nms-item-info-tile>
+			<div class="box">
+				<h3 class="title is-4 is-bold is-spaced">
+					Game Item tile
+				</h3>
+				<assistant-nms-item-info-tile appid="prod49"></assistant-nms-item-info-tile>
+				<i>The tile above is loaded using an <b>AssistantNMS appid</b></i><br />
+				<pre><code class="language-html">&lt;assistant-nms-item-info-tile appid="prod49"&gt;&lt;/assistant-nms-item-info-tile&gt;</code></pre>
 
-			<assistant-nms-item-info-tile gameid="ANTIMATTER"></assistant-nms-item-info-tile>
+				<br /><br />
 
-			<assistant-nms-item-info-tile appid="tech176"></assistant-nms-item-info-tile>
+				<assistant-nms-item-info-tile gameid="HYPERFUEL2"></assistant-nms-item-info-tile>
+				<i>The tile above is loaded using the <b>gameid</b></i><br />
+				<pre><code class="language-html">&lt;assistant-nms-item-info-tile gameid="HYPERFUEL2"&gt;&lt;/assistant-nms-item-info-tile&gt;</code></pre>
+			</div>
 
-			<assistant-nms-community-mission-tile></assistant-nms-community-mission-tile>
+			<div class="box">
+				<h3 class="title is-4 is-bold is-spaced">
+					Community Mission tile
+				</h3>
+				<assistant-nms-community-mission-tile></assistant-nms-community-mission-tile>
+				<i>The tile above is loaded using the following html</i><br />
+				<pre><code class="language-html">&lt;assistant-nms-community-mission-tile&gt;&lt;/assistant-nms-community-mission-tile&gt;</code></pre>
+			</div>
+
+
 
 			<br />
 			<hr class="mt-6" />
@@ -116,6 +136,9 @@
 
 			<input id="step3" type="checkbox" class="styled-checkbox" />
 			<label for="step3" class="checkbox">Use one of the prebuilt components</label>
+			<div class="pl-6 mt-3">
+				<p>e.g. The Game item tile or Community Mission tile.</p>
+			</div>
 
 			<div class="mt-6">
 				<br />
