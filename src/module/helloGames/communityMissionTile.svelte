@@ -80,7 +80,6 @@
     top: 0;
     left: 50%;
     font-size: 16px;
-    font-weight: bold;
     transform: translateX(-50%);
     mix-blend-mode: difference;
   }
