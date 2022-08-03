@@ -12,17 +12,17 @@
   href={url}
   target="_blank"
   rel="noopener noreferrer"
-  class="gen-item-container"
+  class="gen-item-container noselect"
 >
   <div class="image-container" style={`background-color: #${bgcolour};`}>
     <img src={imageurl} alt="loading" draggable={false} />
   </div>
   <div class="gen-item-content-container">
     <div class="text-container" class:full={showsubtitle == false}>
-      <p>{name}</p>
+      <p class="single-line">{name}</p>
     </div>
     {#if showsubtitle}
-      <div class="quantity-container">
+      <div class="quantity-container single-line">
         <slot name="subtitle" />
       </div>
     {/if}
@@ -41,10 +41,20 @@
     font-weight: var(--assistantnms-font-weight, "bold");
   }
 
+  .noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+  }
+
   .gen-item-container {
     display: inline-flex;
     padding-right: 1em;
     width: var(--assistantnms-tile-width, unset);
+    max-width: 100%;
     border-radius: 0.5em var(--assistantnms-border-radius, 0.5em)
       var(--assistantnms-border-radius, 0.5em) 0.5em;
     color: var(--assistantnms-tile-fg-colour, #c5c5c5);
@@ -77,6 +87,12 @@
 
   .gen-item-content-container p {
     margin: 0;
+  }
+
+  .single-line {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 
   .gen-item-content-container .text-container {

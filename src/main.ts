@@ -7,6 +7,7 @@ export * from './shared/loadingWithSlots.svelte';
 export * from './shared/markdown.svelte';
 export * from './shared/tileLoading.svelte';
 export * from './shared/tooltip.svelte';
+export * from './shared/version.svelte';
 
 export * from './App.svelte';
 
