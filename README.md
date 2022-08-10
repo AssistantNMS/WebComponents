@@ -5,6 +5,8 @@
   
   <br />
   
+  ![header](./.github/images/banner.png)
+  
   ![madeWithLove](./.github/img/made-with-love.svg)
   [![licence](./.github/img/licence-badge.svg)](https://github.com/AssistantNMS/App/blob/master/LICENCE.md)<br />
   [![Supported by the No Man's Sky Community Developers & Designers](https://raw.githubusercontent.com/NMSCD/About/master/badge/purple-ftb.svg)][nmscd] 
