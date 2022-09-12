@@ -1,6 +1,6 @@
 <div align="center">
   
-  ![header](./.github/img/header.png)
+  ![header](./.github/img/header-rounded.png)
   
   ![madeWithLove](./.github/img/made-with-love.svg)
   [![licence](./.github/img/licence-badge.svg)](https://github.com/AssistantNMS/App/blob/master/LICENCE.md)<br />
