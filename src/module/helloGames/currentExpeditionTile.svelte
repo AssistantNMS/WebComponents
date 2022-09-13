@@ -1,33 +1,44 @@
-<svelte:options tag="assistant-nms-community-mission-tile" />
+<svelte:options tag="assistant-nms-current-expedition-tile" />
 
 <script lang="ts">
   import { onMount } from "svelte";
   import { NetworkState } from "../../contracts/NetworkState";
   import { AssistantNmsApiService } from "../../services/api/AssistantNmsApiService";
   import { anyObject } from "../../helper/typescriptHacks";
-  import type { CommunityMissionViewModel } from "../../contracts/generated/communityMissionViewModel";
+  import type { CurrentExpeditionViewModel } from "../../contracts/generated/currentExpeditionViewModel";
+  import {
+    getRelativeTimeLeft,
+    percentageProgress,
+  } from "../../helper/dateHelper";
 
   let networkState: NetworkState = NetworkState.Loading;
-  let communityMission: CommunityMissionViewModel = anyObject;
+  let currentExpedition: CurrentExpeditionViewModel = anyObject;
+  let percentage: number = 0;
+  let relativeTimeLeft: string = "";
 
-  const fetchCommunityMission = async () => {
+  const fetchCurrentExpedition = async () => {
     const anmsApi = new AssistantNmsApiService();
-    let commMissionResult = await anmsApi.getCommunityMission();
+    let currentExpResult = await anmsApi.getCurrentExpedition();
 
-    if (
-      commMissionResult.isSuccess == false ||
-      commMissionResult.value == null
-    ) {
+    if (currentExpResult.isSuccess == false || currentExpResult.value == null) {
       networkState = NetworkState.Error;
       return;
     }
 
-    communityMission = { ...commMissionResult.value };
+    currentExpedition = { ...currentExpResult.value };
     networkState = NetworkState.Success;
+    percentage = percentageProgress(
+      currentExpedition.startDate,
+      currentExpedition.endDate
+    );
+    relativeTimeLeft = getRelativeTimeLeft(
+      currentExpedition.startDate,
+      currentExpedition.endDate
+    );
   };
 
   onMount(async () => {
-    fetchCommunityMission();
+    fetchCurrentExpedition();
   });
 </script>
 
@@ -47,17 +58,15 @@
   {/if}
   {#if networkState == NetworkState.Success}
     <assistant-nms-common-tile
-      imageurl="https://app.nmsassistant.com/assets/images/special/communityMissionProgress.png"
-      name={`Research Progress - Tier ${communityMission.currentTier} / ${communityMission.totalTiers}`}
-      url="https://app.nmsassistant.com/helloGames/communityMission"
+      imageurl={currentExpedition.imageUrl}
+      name={currentExpedition.name}
+      nametextalign="center"
+      url="https://app.nmsassistant.com/helloGames/seasonExpedition"
       showsubtitle={true}
     >
       <div slot="subtitle" class="progressbar">
-        <div
-          class="progress"
-          style={`width: ${communityMission.percentage}%;`}
-        />
-        <span>{`${communityMission.percentage}%`}</span>
+        <div class="progress" style={`width: ${percentage}%;`} />
+        <span>{percentage}%&nbsp;-&nbsp;{relativeTimeLeft}</span>
       </div>
     </assistant-nms-common-tile>
   {/if}
@@ -71,6 +80,7 @@
     position: relative;
     background: #000;
     width: 100%;
+    min-width: 250px;
     height: 20px;
     border-radius: 5px;
   }
