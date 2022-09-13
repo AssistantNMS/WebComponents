@@ -1,6 +1,7 @@
 import { currentVersion } from './version';
 
 export * from './module/helloGames/communityMissionTile.svelte';
+export * from './module/helloGames/currentExpeditionTile.svelte';
 export * from './module/item/itemInfoTile.svelte';
 export * from './module/nmsfm/nmsfmTile.svelte';
 export * from './shared/commonTile.svelte';

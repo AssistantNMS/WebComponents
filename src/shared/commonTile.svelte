@@ -2,7 +2,9 @@
 
 <script lang="ts">
   export let imageurl: string = "";
+  export let imageclass: string = "";
   export let name: string = "";
+  export let nametextalign: string = "";
   export let bgcolour: string = "2c7c9f";
   export let url: string = "https://nmsassistant.com";
   export let showsubtitle: boolean = false;
@@ -14,12 +16,15 @@
   rel="noopener noreferrer"
   class="gen-item-container noselect"
 >
-  <div class="image-container" style={`background-color: #${bgcolour};`}>
+  <div
+    class="image-container {imageclass}"
+    style={`background-color: #${bgcolour};`}
+  >
     <img src={imageurl} alt="loading" draggable={false} />
   </div>
   <div class="gen-item-content-container">
     <div class="text-container" class:full={showsubtitle == false}>
-      <p class="single-line">{name}</p>
+      <p class="single-line {nametextalign}">{name}</p>
     </div>
     {#if showsubtitle}
       <div class="quantity-container single-line">
@@ -65,15 +70,23 @@
   .image-container {
     height: var(--assistantnms-img-size, 100px);
     width: var(--assistantnms-img-size, 100px);
-    display: inline-block;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     position: relative;
     border-top-left-radius: var(--assistantnms-border-radius, 0.25em);
     border-bottom-left-radius: var(--assistantnms-border-radius, 0.25em);
   }
 
+  .image-container.x2,
+  .image-container.x2 img {
+    max-height: calc(var(--assistantnms-img-size, 100px) * 1.5);
+    width: calc(var(--assistantnms-img-size, 100px) * 1.5);
+  }
+
   .image-container img {
     max-height: var(--assistantnms-img-size, 100px);
-    width: var(--assistantnms-img-size, 100px);
+    width: 100%;
     border-top-left-radius: var(--assistantnms-border-radius, 0.25em);
     border-bottom-left-radius: var(--assistantnms-border-radius, 0.25em);
   }
@@ -93,6 +106,10 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
+  }
+
+  .single-line.center {
+    text-align: center;
   }
 
   .gen-item-content-container .text-container {
