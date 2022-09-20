@@ -95,6 +95,6 @@
 
   .nmsfm-audio {
     border-radius: var(--assistantnms-border-radius, 0.25em);
-    background-color: white;
+    background-color: #f1f3f4;
   }
 </style>
