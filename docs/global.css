@@ -118,3 +118,15 @@ pre::-webkit-scrollbar {
     box-shadow: 2px 0 0 white, 4px 0 0 white, 4px -2px 0 white, 4px -4px 0 white, 4px -6px 0 white, 4px -8px 0 white;
     transform: rotate(45deg);
 }
+
+@media only screen and (max-width: 600px) {
+    .container .title.is-3 {
+        margin-left: 0.5em;
+    }
+
+    #getStarted,
+    .container .box {
+        margin-left: 0.5em;
+        margin-right: 0.5em;
+    }
+}

@@ -1,4 +1,5 @@
 import type { CommunityMissionViewModel } from '../../contracts/generated/communityMissionViewModel';
+import type { CurrentExpeditionViewModel } from '../../contracts/generated/currentExpeditionViewModel';
 import type { ItemInfoViewModel } from '../../contracts/generated/itemInfoViewModel';
 import type { ResultWithValue } from '../../contracts/results/ResultWithValue';
 import { BaseApiService } from './BaseApiService';
@@ -19,4 +20,7 @@ export class AssistantNmsApiService extends BaseApiService {
 
     getCommunityMission = (): Promise<ResultWithValue<CommunityMissionViewModel>> =>
         this.get<CommunityMissionViewModel>('HelloGames/CommunityMission/');
+
+    getCurrentExpedition = (): Promise<ResultWithValue<CurrentExpeditionViewModel>> =>
+        this.get<CurrentExpeditionViewModel>('HelloGames/Expedition/');
 }
