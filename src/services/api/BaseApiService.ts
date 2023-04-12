@@ -6,7 +6,7 @@ declare global {
 }
 
 export class BaseApiService {
-  private _baseUrl: String = window.config?.apiUrl ?? 'https://api.assistantapps.com';
+  private _baseUrl: String = 'https://api.nmsassistant.com';
   constructor(newBaseUrl?: String) {
     if (newBaseUrl != null) this._baseUrl = newBaseUrl;
   }
