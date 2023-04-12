@@ -10,7 +10,7 @@ declare global {
 
 export class AssistantNmsApiService extends BaseApiService {
     constructor() {
-        super(window.config?.apiUrl ?? 'https://api.nmsassistant.com');
+        super(window.config?.assistantNmsApiUrl);
     }
 
     getItemInfoAppId = (appId: string, languageCode?: string): Promise<ResultWithValue<ItemInfoViewModel>> =>
