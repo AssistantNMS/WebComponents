@@ -1,6 +1,6 @@
 {
   "name": "assistantnms-webcomponents",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": true,
   "scripts": {
     "build": "npm-run-all --sequential version bundle",
