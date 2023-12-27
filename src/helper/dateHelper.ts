@@ -55,13 +55,13 @@ export const getRelativeTimeLeft = (startDate: Date, endDate: Date) => {
     if (hours < 10) return rtf.format(hours, 'hours');
 
     const days = hours / 24;
-    if (days < 10) return rtf.format(days, 'days');
+    if (days < 10) return rtf.format(+days.toFixed(1), 'days');
 
     const months = days / 30;
-    if (months < 10) return rtf.format(months, 'months');
+    if (months < 10) return rtf.format(+months.toFixed(1), 'months');
 
     const years = months / 12;
-    if (years < 10) return rtf.format(years, 'years');
+    if (years < 10) return rtf.format(+years.toFixed(1), 'years');
 
     return 'Unknown';
 }
